@@ -7,6 +7,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import type { LinksFunction } from "@remix-run/react/routeModules";
+import styles from "~/index.css";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -14,9 +16,18 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: styles,
+    },
+  ];
+};
+
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" style={{ fontFamily: "sans-serif" }}>
       <head>
         <Meta />
         <Links />
