@@ -1,10 +1,9 @@
-import { useEffect, useRef } from "react";
 import type { MouseEvent } from "react";
-import { NewTweetForm } from "../NewTweetForm";
+import { useEffect, useRef } from "react";
 
-type Props = { title?: string };
+type ModalProps = React.RefAttributes<HTMLFormElement>;
 
-export const NewTweetModal: React.FC<Props> = ({ title = "I'm a modal" }) => {
+export const Modal: React.FC<ModalProps> = ({ children, ...props }) => {
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     let current = ref.current;
@@ -16,9 +15,8 @@ export const NewTweetModal: React.FC<Props> = ({ title = "I'm a modal" }) => {
     };
   }, []);
   return (
-    <dialog ref={ref} onClick={clickHandler}>
-      <div>{title}</div>
-      <NewTweetForm />
+    <dialog {...props} ref={ref} onClick={clickHandler}>
+      {children}
     </dialog>
   );
 };

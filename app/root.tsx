@@ -9,6 +9,8 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/react/routeModules";
 import styles from "~/index.css";
+import { NewTweetModal } from "./components/NewTweetModal";
+import { ModalRouter } from "./lib/remix-modals";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -37,6 +39,15 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <ModalRouter
+          routes={[
+            { key: "new_tweet", component: <NewTweetModal /> },
+            {
+              key: "edit_tweet",
+              component: <NewTweetModal title="I'm another modal" />,
+            },
+          ]}
+        />
       </body>
     </html>
   );

@@ -1,8 +1,7 @@
-import { Outlet, useSearchParams } from "@remix-run/react";
-import { NewTweetModal } from "~/components/NewTweetModal";
+import { Outlet } from "@remix-run/react";
 
-import { json, redirect } from "@remix-run/node";
 import type { ActionFunction } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 
 export const action: ActionFunction = async ({ request, params }) => {
   // return json({ hello: "hello" });
@@ -10,7 +9,6 @@ export const action: ActionFunction = async ({ request, params }) => {
 };
 
 export default function () {
-  const [searchParams] = useSearchParams();
   return (
     <>
       <div>
@@ -19,7 +17,6 @@ export default function () {
           <Outlet />
         </div>
       </div>
-      {searchParams.get("compose_tweet") && <NewTweetModal />}
     </>
   );
 }

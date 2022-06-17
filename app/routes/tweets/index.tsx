@@ -1,7 +1,11 @@
 export default function () {
   return (
     <>
-      <div>Child</div> <a href="?compose_tweet=true">New Tweet</a>
+      <div>Child</div>{" "}
+      <div>
+        <a href="?rmodal=new_tweet">New Tweet</a>
+      </div>
+      <a href="?rmodal=edit_tweet">Edit Tweet</a>
     </>
   );
 }
