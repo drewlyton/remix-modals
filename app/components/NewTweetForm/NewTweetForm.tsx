@@ -1,15 +1,19 @@
-import { ModalForm } from "@/remix-modals";
+import { useModalFetcher } from "@/remix-modals";
 
 type Props = {};
 
 export const NewTweetForm: React.FC<Props> = () => {
+  const { Form, action, data } = useModalFetcher("/tweets");
   return (
-    <ModalForm method="post" action="/tweets">
+    <Form method="post" action={action}>
       <div>
         <label htmlFor="content">Content</label>
         <textarea name="content" id="content" style={{ display: "block" }} />
+        {data?.errors.content ? (
+          <p style={{ color: "red" }}>{data.errors.content}</p>
+        ) : null}
       </div>
       <button>Tweet</button>
-    </ModalForm>
+    </Form>
   );
 };
