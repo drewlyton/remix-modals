@@ -1,5 +1,13 @@
 dialog {
     margin-top: 5rem;
+    border: none;
+    border-radius: 0.75rem;
+    width: 100%;
+    min-height: 10rem;
+    max-width: 800px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
 }
 dialog::backdrop {
     background-color: rgba(0,0,0,0.25);

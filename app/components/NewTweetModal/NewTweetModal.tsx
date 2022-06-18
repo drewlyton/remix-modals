@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { MouseEvent } from "react";
+import { Modal } from "~/lib/remix-modals";
 import { NewTweetForm } from "../NewTweetForm";
 
 type Props = { title?: string };
@@ -16,25 +16,9 @@ export const NewTweetModal: React.FC<Props> = ({ title = "I'm a modal" }) => {
     };
   }, []);
   return (
-    <dialog ref={ref} onClick={clickHandler}>
+    <Modal>
       <div>{title}</div>
       <NewTweetForm />
-    </dialog>
+    </Modal>
   );
-};
-
-const clickHandler = (e: MouseEvent<HTMLDialogElement>) => {
-  const target = e.target as HTMLDialogElement;
-  if (target.tagName !== "DIALOG") return;
-  const rect = target.getBoundingClientRect();
-
-  const clickedInDialog =
-    rect.top - 25 <= e.clientY &&
-    e.clientY <= rect.top + rect.height + 25 &&
-    rect.left <= e.clientX + 25 &&
-    e.clientX - 25 <= rect.left + rect.width;
-
-  if (clickedInDialog === false && window) {
-    window.location.href = window.location.href.replace(location.search, "");
-  }
 };
