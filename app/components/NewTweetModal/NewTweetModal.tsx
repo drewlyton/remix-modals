@@ -17,7 +17,6 @@ export const NewTweetModal: React.FC<Props> = ({ title = "I'm a modal" }) => {
   }, []);
   return (
     <Modal>
-      <div>{title}</div>
       <NewTweetForm />
     </Modal>
   );

@@ -1,9 +1,13 @@
-import { Outlet } from "@remix-run/react";
 import type { ActionFunction } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
+import { Outlet } from "@remix-run/react";
+import { db } from "~/db.server";
 
-export const action: ActionFunction = async ({ request, params }) => {
-  // return json({ hello: "hello" });
+export const action: ActionFunction = async ({ request }) => {
+  const formData = await request.formData();
+  await db.tweet.create({
+    data: { content: formData.get("content")?.toString() },
+  });
   return redirect("/tweets");
 };
 
