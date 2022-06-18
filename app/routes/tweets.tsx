@@ -1,5 +1,4 @@
 import { Outlet } from "@remix-run/react";
-
 import type { ActionFunction } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
 
