@@ -1,4 +1,4 @@
-import { ModalForm } from "~/lib/remix-modals";
+import { ModalForm } from "@/remix-modals";
 
 type Props = {};
 

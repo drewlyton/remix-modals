@@ -14,7 +14,7 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./app/*"],
-      "remix-modals": ["./app/lib/remix-modals"]
+      "@/remix-modals": ["./app/lib/remix-modals"]
     },
 
     // Remix takes care of building everything in `remix build`.

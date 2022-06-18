@@ -10,7 +10,7 @@ import {
 import type { LinksFunction } from "@remix-run/react/routeModules";
 import styles from "~/index.css";
 import { NewTweetModal } from "./components/NewTweetModal";
-import { ModalRouter, ModalRoute } from "./lib/remix-modals";
+import { ModalRouter, ModalRoute } from "@/remix-modals";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",

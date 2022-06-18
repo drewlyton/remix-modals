@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Modal } from "~/lib/remix-modals";
+import { Modal } from "@/remix-modals";
 import { NewTweetForm } from "../NewTweetForm";
 
 type Props = { title?: string };
